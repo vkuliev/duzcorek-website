@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duzcorek — Digital Marketing Excellence</title>
+  <meta name="description" content="We're experts in eCommerce branding and digital marketing, empowering our online stores to reach global audiences and drive online sales.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #fff;
+      color: #38383c;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── Scroll reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.d1 { transition-delay: 0.12s; }
+    .reveal.d2 { transition-delay: 0.24s; }
+    .reveal.d3 { transition-delay: 0.36s; }
+
+    /* ── Hero ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 88vh;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 64px 80px 80px;
+      background: #fff;
+    }
+
+    .hero-left h1 {
+      font-size: 2.85rem;
+      font-weight: 300;
+      line-height: 1.2;
+      color: #1a1a1e;
+      margin-bottom: 22px;
+      letter-spacing: -0.025em;
+    }
+
+    .hero-left p {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 36px;
+      max-width: 400px;
+      line-height: 1.75;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 22px;
+      background: #38383c;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      border-radius: 6px;
+      align-self: flex-start;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .btn:hover { background: #111; transform: translateY(-2px); }
+
+    .hero-right {
+      background-image: url('https://imgproxy.gamma.app/resize/quality:80/resizing_type:fit/width:1200/https://cdn.gamma.app/lhynkfg7b8tw5pv/generated-images/bu3Qz_pHpO40Cu-20ATKg.jpg');
+      background-size: cover;
+      background-position: center;
+      min-height: 480px;
+    }
+
+    /* ── Services ── */
+    .services {
+      padding: 96px 80px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .services h2 {
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: #1a1a1e;
+      margin-bottom: 56px;
+      max-width: 620px;
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px 80px;
+    }
+
+    .service h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #1a1a1e;
+      margin-bottom: 12px;
+    }
+
+    .service p {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.75;
+    }
+
+    /* ── Portfolio ── */
+    .portfolio {
+      background: #5c5c72;
+      padding: 96px 80px;
+    }
+
+    .portfolio-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .portfolio h2 {
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: #ececec;
+      margin-bottom: 48px;
+      letter-spacing: -0.015em;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .portfolio-item {
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      background: #eee;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+
+    .portfolio-item:hover img { transform: scale(1.04); }
+
+    /* ── Stores ── */
+    .stores {
+      padding: 96px 80px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .stores h2 {
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: #1a1a1e;
+      margin-bottom: 48px;
+      letter-spacing: -0.015em;
+    }
+
+    .stores-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .store-card {
+      display: block;
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .store-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.15);
+    }
+    .store-card img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* ── Contact ── */
+    .contact {
+      padding: 96px 80px;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .contact h2 {
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: #1a1a1e;
+      margin-bottom: 28px;
+      letter-spacing: -0.015em;
+    }
+
+    .contact p {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+
+    .contact-details {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .contact-details p {
+      font-size: 1rem;
+      color: #38383c;
+      margin: 0;
+    }
+
+    .contact-details a { color: #38383c; text-decoration: none; }
+    .contact-details a:hover { text-decoration: underline; }
+
+    .contact-img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      aspect-ratio: 4/3;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid #eee;
+      padding: 28px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+    footer a { color: #888; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { min-height: 320px; }
+      .hero-left { padding: 64px 32px; }
+      .hero-left h1 { font-size: 2rem; }
+      .services, .stores { padding: 64px 32px; }
+      .portfolio { padding: 64px 32px; }
+      .contact { padding: 64px 32px; grid-template-columns: 1fr; gap: 40px; }
+      .services-grid, .stores-grid { grid-template-columns: 1fr; gap: 32px; }
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px 32px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-left h1 { font-size: 1.75rem; }
+      .portfolio-grid { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <h1 class="reveal">Digital Marketing Excellence: Powering Ecommerce Success</h1>
+      <p class="reveal d1">We're experts in eCommerce branding and digital marketing, empowering our online stores to reach global audiences and drive online sales.</p>
+      <a href="https://meetings-eu1.hubspot.com/vguliyev" target="_blank" rel="noopener" class="btn reveal d2">Have a compelling product? Let's work it out.</a>
+    </div>
+    <div class="hero-right reveal d1"></div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services">
+    <h2 class="reveal">Unparalleled Expertise in Ecommerce and Branding</h2>
+    <div class="services-grid">
+      <div class="service reveal">
+        <h3>Ecommerce Strategy</h3>
+        <p>We develop data-driven strategies to optimize our online stores, driving traffic, conversions, and customer loyalty.</p>
+      </div>
+      <div class="service reveal d1">
+        <h3>Brand Building</h3>
+        <p>We create compelling brand stories, engaging visuals, and consistent messaging across all channels.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="portfolio">
+    <div class="portfolio-inner">
+      <h2 class="reveal">Transformative Portfolio of Achievements</h2>
+      <div class="portfolio-grid">
+        <div class="portfolio-item reveal">
+          <img src="https://imgproxy.gamma.app/resize/quality:80/resizing_type:fit/height:400/https://cdn.gamma.app/lhynkfg7b8tw5pv/generated-images/62Hhj1L-UROm8re4lZbSA.jpg" alt="Portfolio — ecommerce design">
+        </div>
+        <div class="portfolio-item reveal d1">
+          <img src="https://imgproxy.gamma.app/resize/quality:80/resizing_type:fit/height:400/https://cdn.gamma.app/lhynkfg7b8tw5pv/generated-images/SDXs7y924jQHBS6Mv7Eh5.jpg" alt="Portfolio — mobile experience">
+        </div>
+        <div class="portfolio-item reveal d2">
+          <img src="https://imgproxy.gamma.app/resize/quality:80/resizing_type:fit/height:400/https://cdn.gamma.app/lhynkfg7b8tw5pv/generated-images/wPW6jncJsFUE1jg2XIg4g.jpg" alt="Portfolio — growth metrics">
+        </div>
+        <div class="portfolio-item reveal d3">
+          <img src="https://imgproxy.gamma.app/resize/quality:80/resizing_type:fit/height:400/https://cdn.gamma.app/lhynkfg7b8tw5pv/generated-images/H0fwEXuWoJ6c6WFZVinzq.jpg" alt="Portfolio — analytics results">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUR ONLINE STORES -->
+  <section class="stores">
+    <h2 class="reveal">Our Online Stores</h2>
+    <div class="stores-grid">
+      <a href="https://topogstore.com" target="_blank" rel="noopener" class="store-card reveal">
+        <img src="https://imgproxy.gamma.app/resize/quality:80/resizing_type:fit/height:400/https://cdn.gamma.app/lhynkfg7b8tw5pv/ec94c78eaa4141c2a9163e8984fc4fa8/original/topogostore.png" alt="Topogstore — general ecommerce store">
+      </a>
+      <a href="https://femineon.com" target="_blank" rel="noopener" class="store-card reveal d1">
+        <img src="https://imgproxy.gamma.app/resize/quality:80/resizing_type:fit/height:400/https://cdn.gamma.app/lhynkfg7b8tw5pv/6e34cdc382884276a70c86cd3a4d3c1d/original/Femineon.png" alt="Femineon — beauty and cosmetics store">
+      </a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact">
+    <div class="contact-text reveal">
+      <h2>Contact Us</h2>
+      <p>Ready to elevate your eCommerce product with our digital marketing expertise?</p>
+      <p>We're ready to help you achieve your business goals. Get in touch with our team today.</p>
+      <p>Let's discuss your unique needs and create a tailored digital strategy for success.</p>
+      <div class="contact-details">
+        <p>Email: <a href="mailto:hello@duzcorek.com">hello@duzcorek.com</a></p>
+        <p>Phone: <a href="tel:+13026203999">+13026203999</a></p>
+      </div>
+    </div>
+    <div class="reveal d1">
+      <img class="contact-img"
+        src="https://imgproxy.gamma.app/resize/quality:80/resizing_type:fit/width:2000/https://cdn.gamma.app/lhynkfg7b8tw5pv/generated-images/KuBSUMS1SC2sqD2uaPkl1.jpg"
+        alt="Our team">
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2025 Duzcorek. All rights reserved.</span>
+    <a href="mailto:hello@duzcorek.com">hello@duzcorek.com</a>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
